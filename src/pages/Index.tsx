@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Icon from '@/components/ui/icon';
@@ -6,9 +6,29 @@ import { Button } from '@/components/ui/button';
 
 const Index = () => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolume] = useState(0.7);
+  const audioRef = useRef<HTMLAudioElement>(null);
+
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = volume;
+    }
+  }, [volume]);
 
   const togglePlay = () => {
-    setIsPlaying(!isPlaying);
+    if (audioRef.current) {
+      if (isPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsPlaying(!isPlaying);
+    }
+  };
+
+  const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVolume = parseFloat(e.target.value);
+    setVolume(newVolume);
   };
 
   return (
@@ -131,7 +151,12 @@ const Index = () => {
                   </div>
 
                   <div className="bg-card p-6 rounded-lg shadow-inner border border-primary/20">
-                    <div className="flex items-center justify-center gap-4">
+                    <audio 
+                      ref={audioRef}
+                      src="https://cdn.poehali.dev/projects/b87f5d8e-d806-44da-873c-7dff7e3164a1/files/tatar-song.mp3"
+                      loop
+                    />
+                    <div className="flex flex-col items-center gap-4">
                       <Button 
                         onClick={togglePlay}
                         size="lg"
@@ -140,6 +165,19 @@ const Index = () => {
                         <Icon name={isPlaying ? "Pause" : "Play"} size={24} className="mr-2" />
                         {isPlaying ? "Туктату" : "Тыңларга"}
                       </Button>
+                      <div className="flex items-center gap-3 w-full max-w-xs">
+                        <Icon name="Volume2" size={20} className="text-muted-foreground" />
+                        <input 
+                          type="range" 
+                          min="0" 
+                          max="1" 
+                          step="0.1"
+                          value={volume}
+                          onChange={handleVolumeChange}
+                          className="flex-1 accent-primary"
+                        />
+                        <span className="text-sm text-muted-foreground min-w-[3ch]">{Math.round(volume * 100)}%</span>
+                      </div>
                     </div>
                     <p className="text-center text-sm text-muted-foreground mt-4">
                       {isPlaying ? "Җыр уйный..." : "Җырны тыңлау өчен төймәгә басыгыз"}
