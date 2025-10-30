@@ -153,7 +153,7 @@ const Index = () => {
                   <div className="bg-card p-6 rounded-lg shadow-inner border border-primary/20">
                     <audio 
                       ref={audioRef}
-                      src="https://cdn.poehali.dev/projects/b87f5d8e-d806-44da-873c-7dff7e3164a1/files/tatar-song.mp3"
+                      src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
                       loop
                     />
                     <div className="flex flex-col items-center gap-4">
