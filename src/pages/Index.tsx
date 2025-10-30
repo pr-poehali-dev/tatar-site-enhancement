@@ -418,6 +418,16 @@ const Index = () => {
         </main>
 
         <footer className="container mx-auto px-4 py-8 mt-12 text-center border-t border-primary/20">
+          <div className="mb-6">
+            <div className="inline-block p-4 bg-white rounded-xl shadow-lg">
+              <img 
+                src={`https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(window.location.href)}`}
+                alt="QR код сайта"
+                className="w-48 h-48"
+              />
+              <p className="text-sm text-foreground/60 mt-2">Сканируйте QR код</p>
+            </div>
+          </div>
           <p className="text-foreground/70 text-lg">
             © 2025 Татар Мәдәнияте • Барлык хокуклар сакланган
           </p>
