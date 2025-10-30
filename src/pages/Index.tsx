@@ -247,6 +247,11 @@ const Index = () => {
                         </div>
                       </div>
                       <div className="space-y-4 text-foreground/90 leading-relaxed">
+                        <img 
+                          src="https://cdn.poehali.dev/projects/b87f5d8e-d806-44da-873c-7dff7e3164a1/files/e8f16f06-5c5a-48bd-aad5-5293a7c223ef.jpg"
+                          alt="Казан Кремле"
+                          className="w-full rounded-lg shadow-lg mb-4"
+                        />
                         <p className="text-lg">
                           Казан Кремле – Татарстанның иң зур тарихи һәм архитектура комплексы. Ул X гасырда 
                           корылган һәм безнең көннәргә кадәр үз матурлыгын саклап калган.
@@ -369,6 +374,11 @@ const Index = () => {
                           <p className="text-muted-foreground">Татар халкының тамырлары</p>
                         </div>
                       </div>
+                      <img 
+                        src="https://cdn.poehali.dev/projects/b87f5d8e-d806-44da-873c-7dff7e3164a1/files/fab39640-279e-4798-abe1-e2f02ecc00ac.jpg"
+                        alt="Болгар шәһәре"
+                        className="w-full rounded-lg shadow-lg mb-4"
+                      />
                       <p className="text-foreground/90 leading-relaxed mb-4">
                         Борынгы Болгар шәһәре – Идел Болгары дәүләтенең баш шәһәре булган. 
                         XIII гасырда монда ислам дине рәсми дин буларак кабул ителгән. Бүген бу урын 
